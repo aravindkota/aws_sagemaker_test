@@ -33,7 +33,7 @@ from tensorflow.python.keras.preprocessing.text import Tokenizer
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 
 MAX_LEN = 100
-label_index = {'Business':0,'Science & Technology':1,'Entertainment':2,'Health & Medicine':3}
+label_index = {'note':0,'cook':1,'prep':2,'finish':3, 'caution': 4, 'preheat': 5}
 prefix = '/opt/ml/'
 model_path = os.path.join(prefix, 'model')
 with open(os.path.join(model_path,'tokenizer.pickle'), 'rb') as handle:

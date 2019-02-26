@@ -53,8 +53,8 @@ param_path = os.path.join(prefix, 'input/config/hyperparameters.json')
 channel_name='training'
 training_path = os.path.join(input_path, channel_name)
 
-label_index = {'b':0,'t':1,'e':2,'m':3}
-MAX_WORDS = 10000 # only consider the top 10,000 words in the dataset
+label_index = {'note':0,'cook':1,'prep':2,'finish':3, 'caution': 4, 'preheat': 5}
+MAX_WORDS = 20000 # only consider the top 10,000 words in the dataset
 WORD_INDEX = {}
 EMBEDDING_DIM = 100
 MAX_LEN = 100
@@ -90,7 +90,7 @@ def train():
             trainingParams = json.load(tc)
 
         column_names = ["directions","type"]
-        news_dataset = pd.read_csv(os.path.join(training_path, 'recipe.csv'), names=column_names, header=None, delimiter='\t')
+        news_dataset = pd.read_csv(os.path.join(training_path, 'recipe.csv'), names=column_names, header=None)
         news_dataset = news_dataset.dropna()
         print(news_dataset.head())
 
