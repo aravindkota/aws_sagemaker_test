@@ -97,7 +97,7 @@ def train():
         #remove punctuations and double spaces
         texts = [normalize_text(s) for s in news_dataset['directions']]
         #convert category to a number
-        labels = [get_label_id(l) for l in news_dataset['title']]
+        labels = [get_label_id(l) for l in news_dataset['type']]
 
         tokenizer = Tokenizer(num_words=MAX_WORDS)
         tokenizer.fit_on_texts(texts) #texts contains the Title
